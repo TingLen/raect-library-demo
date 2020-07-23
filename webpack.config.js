@@ -2,12 +2,16 @@ const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    gallery: './src/components/gallery/Gallery.jsx',
+    table: './src/components/table/index.jsx'
+  },
   output: {
       path: path.resolve(__dirname, 'lib'),
-      filename: 'dtchain-fe.js',
+      filename: 'components/[name]/index.js',
       library: 'dtchain-fe',
       libraryTarget: 'umd'
+      
   },
   resolve: {
     extensions: ['.js', '.jsx']

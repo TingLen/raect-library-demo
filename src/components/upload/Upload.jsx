@@ -3,7 +3,7 @@ import * as qiniu from 'qiniu-js'
 import moment from 'moment/moment'
 import {Button, Upload as AUpload} from 'antd'
 import {UploadOutlined} from '@ant-design/icons'
-import utils from "../../utils/index"
+import utils from "../_utils/index"
 
 class Upload extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, {Fragment, useState, useEffect, useContext} from 'react'
 import {Link, useRouteMatch} from 'react-router-dom'
 import {PageHeader as APageHeader} from 'antd'
-import DTchainProvider from '../../utils/dtchain_provider'
+import DTchainProvider from '../_utils/dtchain_provider'
 
 const {DTchainContext} = DTchainProvider
 

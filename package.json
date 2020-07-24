@@ -2,13 +2,17 @@
   "name": "react-sample-components-library",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/index.js",
+  "main": "lib/index.js",
+  "unpkg": "dist/index.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "styleguidist server",
+    "build": "npm run build-components && npm run build-styles && npm run build-index && npm run webpack && npm run webpack-style",
     "webpack": "webpack --config ./webpack.config.js",
     "build-components": "node ./build/build_components.js",
-    "build-style": "node ./build/build_style.js"
+    "build-styles": "node ./build/build_styles.js",
+    "build-index": "node ./build/build_index.js",
+    "webpack-style": "node ./build/build_webpack_styles.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +26,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "csso": "^4.0.3",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fs-extra": "^9.0.1",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",

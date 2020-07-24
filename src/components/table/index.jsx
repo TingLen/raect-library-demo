@@ -2,7 +2,7 @@ import React, {useEffect, useReducer} from 'react'
 import { useHistory, useLocation } from "react-router-dom"
 import * as lodash from 'lodash'
 import {TableComponent} from './TableComponent'
-import hooks from '../../utils/hooks'
+import hooks from '../_utils/hooks'
 
 const reducer = (state, action) => {
   const params = action.searchData

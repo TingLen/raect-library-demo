@@ -7,8 +7,8 @@ import {
   EyeOutlined,
   EyeInvisibleOutlined,
 } from '@ant-design/icons'
-import utils from '../../utils'
-import './style/gallery.less'
+import utils from '../_utils'
+import './style/index.less'
 
 export default class Gallery extends Component{
   constructor(props) {

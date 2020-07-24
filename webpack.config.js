@@ -1,14 +1,12 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
-  entry: {
-    gallery: './src/components/gallery/Gallery.jsx',
-    table: './src/components/table/index.jsx'
-  },
+  entry: './lib/index.js',
   output: {
-      path: path.resolve(__dirname, 'lib'),
-      filename: 'components/[name]/index.js',
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'dtchain-fe.min.js',
       library: 'dtchain-fe',
       libraryTarget: 'umd'
       
@@ -27,7 +25,11 @@ module.exports = {
       },{
         test: /\.(less)$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'less-loader']},
+        use: ExtractTextPlugin.extract(['css-loader', 'less-loader' ])
+      },
    ]                           
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("dtchain-fe.less"),
+  ]
 }

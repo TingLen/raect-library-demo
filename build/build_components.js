@@ -13,8 +13,23 @@ const babelConfig = {
 
 const isCode = filePath => /(\.jsx?)|(style)$/.test(filePath)
 const isScript = filePath => /\.jsx?$/.test(filePath)
+const isUtils = filePath => /_utils$/.test(filePath)
 
 const compile = dir => {
+  // 单独处理_utils文件夹
+  if(isUtils(dir)) {
+    /**
+     * 1. 遍历_utils文件夹下所有js文件
+     * 2. 对js文件进行babel编译
+     */
+    const utils = fs.readdirSync(dir)
+    utils.forEach(util => {
+      const utilPath = path.join(dir, util)
+      const {code} = babel.transformFileSync(utilPath, babelConfig)
+      fs.removeSync(utilPath)
+      fs.outputFileSync(utilPath, code)
+    })
+  } else {
   /**
    * 1. 遍历文件夹下所有文件
    * 2. 除js文件，style文件夹之外的file与dir，删除
@@ -32,6 +47,8 @@ const compile = dir => {
     }
 
   })
+  }
+  
 }
 
 // 删除lib文件

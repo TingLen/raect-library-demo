@@ -2,13 +2,10 @@
   "name": "react-sample-components-library",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "styleguidist server",
-    "webpack": "webpack --config ./webpack.config.js",
-    "build-components": "node ./build/build_components.js",
-    "build-style": "node ./build/build_style.js"
+    "start": "styleguidist server"
   },
   "keywords": [],
   "author": "",
@@ -20,22 +17,13 @@
     "@babel/preset-react": "^7.10.4",
     "antd": "^4.4.3",
     "babel-loader": "^8.1.0",
-    "css-loader": "^3.6.0",
-    "csso": "^4.0.3",
-    "fs-extra": "^9.0.1",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
-    "lodash": "^4.17.19",
-    "number-precision": "^1.5.0",
-    "qiniu-js": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-images": "^1.1.7",
     "react-router-dom": "^5.2.0",
     "react-styleguidist": "^11.0.8",
     "style-loader": "^1.2.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.5.0"
+    "webpack": "^4.43.0"
   }
 }

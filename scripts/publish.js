@@ -9,17 +9,34 @@ const path = require('path')
  * 5. 通过命令行发布
  */
 
- const publishPath = path.join(__dirname, '../publish')
+ const filterFiles = [
+   /lib/,
+   /dist/,
+   /package.json/,
+ ]
 
- const files = fs.readdirSync(__dirname, '..') //当前目录下的所有文件
+ const publishPath = path.join(__dirname, '../publish')
+ const projectPath = path.join(__dirname, '..')
+ const files = fs.readdirSync(projectPath).filter(file => {
+   const result = []
+  filterFiles.forEach(filterFile => {
+    if(filterFile.test(file)) {
+      result.push(file)
+    }
+  })
+  return result.length > 0
+
+ }) //当前目录下需要复制的文件
+ console.log(files)
 
  // 新建publish文件夹
  fs.ensureDirSync(publishPath)
  fs.emptyDirSync(publishPath)
 
  files.forEach(file => {
-   const filePath = path.join(__dirname, file)
+   const filePath = path.join(projectPath, file)
    const targetFilePath = path.join(publishPath, file)
+   console.log()
    fs.copySync(filePath, targetFilePath)
  })
 

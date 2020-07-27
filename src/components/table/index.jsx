@@ -2,7 +2,7 @@ import React, {useEffect, useReducer} from 'react'
 import { useHistory, useLocation } from "react-router-dom"
 import * as lodash from 'lodash'
 import {TableComponent} from './TableComponent'
-import hooks from '../_utils/hooks'
+import hooks from '../utils/hooks'
 
 const reducer = (state, action) => {
   const params = action.searchData
@@ -86,5 +86,7 @@ const Table = ({columns, data, loading, pageInfo, actions, extraParams, ...props
     />
   )
 }
+
+Table.NormalTable = TableComponent
 
 export default Table

@@ -1,6 +1,8 @@
 import {isEqual} from "lodash"
 import {notification, message} from 'antd'
 import NP from 'number-precision'
+import hooks from './hooks'
+import DTchainProvider from './dtchain_provider'
 
 message.config({
   top: 100
@@ -237,5 +239,7 @@ export default {
   getTimestamp,
   Notification,
   Message,
-  defaultText
+  defaultText,
+  hooks,
+  DTchainProvider
 }

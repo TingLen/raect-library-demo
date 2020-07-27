@@ -3,7 +3,6 @@ const path = require('path')
 const babel = require('@babel/core')
 
 const libPath = path.join(__dirname, '../lib')
-const libComponentsPath = path.join(libPath, 'components')
 const srcPath = path.join(__dirname, '../src')
 const srcComponentsPath = path.join(srcPath, 'components')
 
@@ -13,13 +12,13 @@ const babelConfig = {
 
 const isCode = filePath => /(\.jsx?)|(style)$/.test(filePath)
 const isScript = filePath => /\.jsx?$/.test(filePath)
-const isUtils = filePath => /_utils$/.test(filePath)
+const isUtils = filePath => /utils$/.test(filePath)
 
 const compile = dir => {
-  // 单独处理_utils文件夹
+  // 单独处理utils文件夹
   if(isUtils(dir)) {
     /**
-     * 1. 遍历_utils文件夹下所有js文件
+     * 1. 遍历utils文件夹下所有js文件
      * 2. 对js文件进行babel编译
      */
     const utils = fs.readdirSync(dir)
@@ -43,7 +42,7 @@ const compile = dir => {
     } else if(isScript(filePath)) {
       const {code} = babel.transformFileSync(filePath, babelConfig)
       fs.removeSync(filePath)
-      fs.outputFileSync(path.join(dir, 'index.js'), code)
+      fs.outputFileSync(path.join(dir, `${file.replace(/.jsx?$/, '')}.js`), code)
     }
 
   })
@@ -56,8 +55,8 @@ fs.ensureDirSync(libPath)
 fs.emptyDirSync(libPath)
 
 // 将src/components 复制到 lib/components
-fs.copySync(srcComponentsPath, libComponentsPath)
+fs.copySync(srcComponentsPath, libPath)
 
 // 遍历执行compile
-const components = fs.readdirSync(libComponentsPath)
-components.forEach(component => compile(path.join(libComponentsPath, component)))
+const components = fs.readdirSync(libPath)
+components.forEach(component => compile(path.join(libPath, component)))

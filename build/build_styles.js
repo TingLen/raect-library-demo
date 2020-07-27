@@ -19,7 +19,7 @@ const cssScriptContent = () => `
 "use strict"
 require("./index.css")
 `
-const componentsPath = path.join(__dirname, '../lib/components')
+const componentsPath = path.join(__dirname, '../lib')
 
 const isStyleDir = filePath => /style$/.test(filePath)
 

@@ -11,7 +11,7 @@ const lodash = require('lodash')
  */
 
  const indexPath = path.join(__dirname, '../lib/index.js')
- const componentsPath = path.join(__dirname, '../lib/components')
+ const componentsPath = path.join(__dirname, '../lib')
 
  const babelConfig = {
   configFile: path.join(__dirname, '../babel.config.json')
@@ -19,7 +19,7 @@ const lodash = require('lodash')
 
 
  const indexContentTemplate = name => `
- export {default as ${lodash.upperFirst(lodash.camelCase(name))}} from './components/${name}'
+ export {default as ${lodash.upperFirst(lodash.camelCase(name))}} from './${name}'
  `
  const components = fs.readdirSync(componentsPath)
 

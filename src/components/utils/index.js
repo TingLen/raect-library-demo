@@ -1,4 +1,4 @@
-import {isEqual} from "lodash"
+import lodash from "lodash"
 import {notification, message} from 'antd'
 import NP from 'number-precision'
 import hooks from './hooks'
@@ -171,7 +171,7 @@ function compareState(oldData = {}, newData = {}, ignore=['page']) {
     delete obj[el]
     delete _obj[el]
   })
-  if(isEqual(_obj, obj)) {
+  if(lodash.isEqual(_obj, obj)) {
     return 1
   } else {
     return 0

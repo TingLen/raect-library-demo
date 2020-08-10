@@ -4,7 +4,7 @@
     "@babel/plugin-proposal-class-properties",
     [
       "import",
-      [{"libraryName": "antd", "style": true}]
+      {"libraryName": "antd", "style": true}
     ]
   ],
   "env": {

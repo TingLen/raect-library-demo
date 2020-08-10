@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useHistory, useLocation } from "react-router-dom"
-import * as lodash from 'lodash'
+import lodash from 'lodash'
 
 export const usePrevious = value => {
   const ref = useRef()

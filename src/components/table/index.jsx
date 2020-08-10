@@ -1,6 +1,6 @@
 import React, {useEffect, useReducer} from 'react'
 import { useHistory, useLocation } from "react-router-dom"
-import * as lodash from 'lodash'
+import lodash from 'lodash'
 import {TableComponent} from './TableComponent'
 import hooks from '../utils/hooks'
 

@@ -1,6 +1,7 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const lodashPlugin = require('lodash-webpack-plugin')
 
 module.exports = {
   entry: './lib/index.js',
@@ -31,5 +32,6 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin("dtchain-fe.less"),
+    new lodashPlugin
   ]
 }
